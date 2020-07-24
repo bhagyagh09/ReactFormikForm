@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import ReactSignUp from './ReactSignUp';
+import FormikSignUp from './FormikSignUp';
+import Header from './Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  public render() {
+    const formErrors = {email: ""};
+    return (
+      <div className="App">
+        <div className="form-container">
+          <header className="App-header">
+            <Header name="React" />
+          </header>
+          <div className="form-content">
+            <ReactSignUp 
+            email={"abc"}
+            emailValid={false}
+            formErrors={formErrors}/>
+          </div>
+        </div>
+        <div className="form-container">
+          <header className="App-header">
+            <Header name="Formik" />
+          </header>
+          <div className="form-content">
+            <FormikSignUp/>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
